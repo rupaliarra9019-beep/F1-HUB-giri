@@ -1,0 +1,261 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --red: #e10600;
+  --bg: #101014;
+  --panel: #1c1c23;
+  --surface: #25252d;
+  --border: #393943;
+  --muted: #92929b;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 24px 20px;
+  border-bottom: 1px solid #292930;
+}
+
+header h1 {
+  font-size: 30px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+header h1 span {
+  color: var(--red);
+}
+
+header p,
+.muted {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+main {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.premium-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  min-height: 65px;
+  padding: 15px 20px;
+  background: #202027;
+  color: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-icon {
+  font-size: 25px;
+}
+
+.nav-btn.active {
+  background: linear-gradient(110deg, #421513, #252027);
+  border-color: var(--red);
+}
+
+.nav-btn:active,
+.action-btn:active,
+.session-btn:active {
+  transform: scale(0.98);
+}
+
+.hero {
+  background: linear-gradient(135deg, #292930, #151519);
+  border-left: 4px solid var(--red);
+  padding: 22px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  font-size: 29px;
+  line-height: 1.2;
+}
+
+.panel {
+  background: var(--panel);
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.panel h2 {
+  font-size: 17px;
+}
+
+.panel h3 {
+  font-size: 16px;
+}
+
+select {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  background: var(--surface);
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+select option {
+  background: var(--surface);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 450px;
+}
+
+th {
+  color: var(--red);
+  font-size: 11px;
+  padding: 12px 8px;
+  border-bottom: 1px solid #41414a;
+  white-space: nowrap;
+}
+
+td {
+  padding: 13px 8px;
+  font-size: 12px;
+  border-bottom: 1px solid #303039;
+  white-space: nowrap;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.position {
+  color: var(--red);
+  font-weight: bold;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.error {
+  color: #ff7777;
+  font-size: 13px;
+}
+
+.session-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+  margin: 18px 0;
+}
+
+.session-btn {
+  padding: 14px 5px;
+  background: #292932;
+  border: 1px solid #41414a;
+  color: white;
+  border-radius: 9px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.session-btn.active {
+  background: linear-gradient(135deg, #74110e, #321615);
+  border-color: var(--red);
+}
+
+.action-btn {
+  padding: 12px 16px;
+  background: var(--surface);
+  color: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.section-label {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.result-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 25px 10px;
+  color: var(--muted);
+}
+
+footer {
+  text-align: center;
+  color: #777;
+  padding: 25px;
+  font-size: 11px;
+}
+
+@media (max-width: 420px) {
+  main {
+    padding: 13px;
+  }
+
+  .session-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .session-btn {
+    padding: 13px 2px;
+    font-size: 12px;
+  }
+
+  .hero h2 {
+    font-size: 25px;
+  }
+}
+.ferrari-car {
+  background-image: url("./images/ferrari.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

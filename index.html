@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101014">
+  <meta name="description" content="F1 HUB - Your motorsport command centre">
+  <title>F1 HUB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>F1 <span>HUB.</span></h1>
+    <p>YOUR MOTORSPORT COMMAND CENTRE</p>
+  </header>
+
+  <main>
+    <nav class="premium-nav">
+      <button class="nav-btn active"
+        onclick="showDashboard('home', this)">
+        <span class="nav-icon">🏁</span>
+        <span class="nav-label">HOME</span>
+      </button>
+
+      <button class="nav-btn"
+        onclick="showDashboard('championship', this)">
+        <span class="nav-icon">🏆</span>
+        <span class="nav-label">STANDINGS</span>
+      </button>
+
+      <button class="nav-btn"
+        onclick="showDashboard('sessions', this)">
+        <span class="nav-icon">⏱️</span>
+        <span class="nav-label">SESSION CENTRE</span>
+      </button>
+
+      <button class="nav-btn"
+        onclick="showDashboard('live', this)">
+        <span class="nav-icon">📡</span>
+        <span class="nav-label">LIVE TIMING</span>
+      </button>
+    </nav>
+
+    <section id="appView">
+      <div class="panel">
+        <p class="status">Loading F1 HUB...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    F1 HUB • 🏎️MADE BY A 🤚🦁👍
+    
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+<img src="file:///storage/emulated/0/Download/020120191552_Re-KYC (1).pdf">
