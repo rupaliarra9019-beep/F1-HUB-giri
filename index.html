@@ -3,59 +3,245 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="theme-color" content="#101014">
-  <meta name="description" content="F1 HUB - Your motorsport command centre">
-  <title>F1 HUB</title>
+  <meta name="description" content="F1 HUB - Your Motorsport Command Centre">
+
+  <title>F1 HUB | Motorsport Command Centre</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h1>F1 <span>HUB.</span></h1>
-    <p>YOUR MOTORSPORT COMMAND CENTRE</p>
+
+  <header class="app-header">
+    <div class="brand">
+      <h1>F1 <span>HUB.</span></h1>
+      <p>YOUR MOTORSPORT COMMAND CENTRE</p>
+    </div>
   </header>
 
-  <main>
-    <nav class="premium-nav">
-      <button class="nav-btn active"
+  <main class="app-container">
+
+    <nav class="navigation" aria-label="Main navigation">
+
+      <button
+        class="nav-btn active"
+        type="button"
+        data-page="home"
         onclick="showDashboard('home', this)">
-        <span class="nav-icon">🏁</span>
-        <span class="nav-label">HOME</span>
+        <span>🏁</span>
+        <span>HOME</span>
       </button>
 
-      <button class="nav-btn"
+      <button
+        class="nav-btn"
+        type="button"
+        data-page="championship"
         onclick="showDashboard('championship', this)">
-        <span class="nav-icon">🏆</span>
-        <span class="nav-label">STANDINGS</span>
+        <span>🏆</span>
+        <span>STANDINGS</span>
       </button>
 
-      <button class="nav-btn"
+      <button
+        class="nav-btn"
+        type="button"
+        data-page="sessions"
         onclick="showDashboard('sessions', this)">
-        <span class="nav-icon">⏱️</span>
-        <span class="nav-label">SESSION CENTRE</span>
+        <span>⏱️</span>
+        <span>SESSION CENTRE</span>
       </button>
 
-      <button class="nav-btn"
+      <button
+        class="nav-btn"
+        type="button"
+        data-page="live"
         onclick="showDashboard('live', this)">
-        <span class="nav-icon">📡</span>
-        <span class="nav-label">LIVE TIMING</span>
+        <span>📡</span>
+        <span>LIVE TIMING</span>
       </button>
+
     </nav>
 
-    <section id="appView">
+    <section
+      id="appView"
+      class="app-view"
+      aria-live="polite">
+
       <div class="panel">
-        <p class="status">Loading F1 HUB...</p>
+        <p class="status">F1 HUB is loading...</p>
       </div>
+
     </section>
+
   </main>
 
-  <footer>
-    F1 HUB • MADE BY A FAN 🏎️
-    
+  <footer class="app-footer">
+    <p>F1 HUB · MADE BY A FAN 🏎️</p>
+
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
+<script src="standings.js" defer></script>
+<script src="sessions.js" defer></script>
+
+
+
+<style>
+  #f1-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: transparent;
+    overflow: hidden;
+    pointer-events: auto;
+  }
+
+  /* LEFT SHUTTER */
+  .f1-shutter.left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 195%;
+    height: 100%;
+    background: #050505;
+    z-index: 2;
+    clip-path: polygon(0 0, 100% 0, 25% 100%, 0 100%);
+    animation: openLeft 2s cubic-bezier(.1,1,.50,.45) 1.8s forwards;
+  }
+
+  /* RIGHT SHUTTER */
+  .f1-shutter.right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 195%;
+    height: 100%;
+    background: #050505;
+    z-index: 2;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 75% 100%);
+    animation: openRight 2s cubic-bezier(.1,1,.50,.45) 1.8s forwards;
+  }
+
+  @keyframes openLeft {
+    to { transform: translateX(-105%); }
+  }
+
+  @keyframes openRight {
+    to { transform: translateX(105%); }
+  }
+
+  /* RED F1 CAR */
+  #f1-intro-car {
+    position: absolute;
+    z-index: 4;
+    width: 125px;
+    height: 230px;
+    left: calc(50% - 62.5px);
+    bottom: -250px;
+    overflow: visible;
+    animation: carLaunch 1.3s cubic-bezier(.1,1,.50,.47) 1.6s forwards;
+  }
+
+  /* CAR AND FLAME MOVE TOGETHER */
+  @keyframes carLaunch {
+    from { transform: translateY(-5vh); }
+    to { transform: translateY(-170vh); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #f1-intro { display: none; }
+  }
+</style>
+
+<div id="f1-intro">
+
+  <div class="f1-shutter left"></div>
+  <div class="f1-shutter right"></div>
+
+  <svg id="f1-intro-car"
+       viewBox="0 0 125 230"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <!-- FLAME AT THE REAR -->
+    <g id="f1-flame">
+      <path d="M52 190 Q35 215 62 230 Q89 215 73 190 Z"
+            fill="#ff2600"/>
+      <path d="M58 193 Q48 214 62 222 Q76 214 67 193 Z"
+            fill="#ffb000"/>
+      <path d="M60 195 Q56 211 62 216 Q68 211 64 195 Z"
+            fill="#fff2a0"/>
+    </g>
+
+    <!-- REAR WING -->
+    <rect x="13" y="184" width="99" height="12" rx="3" fill="#a80000"/>
+    <rect x="8" y="181" width="10" height="19" rx="2" fill="#333"/>
+    <rect x="107" y="181" width="10" height="19" rx="2" fill="#333"/>
+
+    <!-- TYRES -->
+    <rect x="0" y="145" width="22" height="48" rx="7" fill="#171717"/>
+    <rect x="103" y="145" width="22" height="48" rx="7" fill="#171717"/>
+    <rect x="0" y="44" width="22" height="48" rx="7" fill="#171717"/>
+    <rect x="103" y="44" width="22" height="48" rx="7" fill="#171717"/>
+
+    <!-- WINGS -->
+    <rect x="0" y="210" width="125" height="5" fill="#d00000"/>
+    <rect x="0" y="18" width="125" height="5" fill="#d00000"/>
+
+    <!-- MAIN CAR BODY -->
+    <path d="M48 205 L42 174 L38 135 L40 88
+             L47 43 L55 13 L70 13 L78 43
+             L85 88 L87 135 L83 174 L77 205 Z"
+          fill="#e10600"/>
+
+    <path d="M12 43 L37 39 L48 44 L77 44
+             L88 39 L113 43 L117 51
+             L79 56 L46 56 L8 51 Z"
+          fill="#b90000"/>
+
+    <path d="M56 17 L69 17 L74 57 L51 57 Z"
+          fill="#ff2525"/>
+
+    <!-- COCKPIT -->
+    <path d="M48 105 Q62 82 77 105 L75 139
+             Q62 153 50 139 Z"
+          fill="#191919"/>
+
+    <ellipse cx="62.5" cy="119" rx="9" ry="12" fill="#eee"/>
+
+    <path d="M54 117 Q62 108 71 117 L70 122 L55 122 Z"
+          fill="#222"/>
+
+    <!-- SIDE DETAILS -->
+    <path d="M39 75 L49 82 L45 143 L34 150 Z"
+          fill="#ff3030"/>
+
+    <path d="M86 75 L76 82 L80 143 L91 150 Z"
+          fill="#ff3030"/>
+
+    <path d="M47 165 L78 165 L83 185 L42 185 Z"
+          fill="#a80000"/>
+
+    <rect x="57" y="188" width="11" height="5" rx="2"
+          fill="#ffb000"/>
+
+  </svg>
+</div>
+
+<script>
+(() => {
+  const intro = document.getElementById("f1-intro");
+  if (!intro) return;
+
+  setTimeout(() => {
+    intro.remove();
+  }, 4200);
+})();
+</script>
+
+
+
+
 </body>
 </html>
-<img src="file:///storage/emulated/0/Download/020120191552_Re-KYC (1).pdf">

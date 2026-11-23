@@ -259,3 +259,19 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
 }
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 65px;
+  padding: 15px 20px;
+  border-radius: 12px;
+}
