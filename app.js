@@ -1,4 +1,4 @@
-
+!
 "use strict";
 
 /* ==========================================
@@ -231,7 +231,7 @@ if (page === "sessions") {
 if (page === "live") {
   const panel = createElement("div", "", appView, "panel");
 
-  createElement("h2", " HEY ! HE IS LION YOU DON'T NEED TO          WATCH JUST SAY ", panel);
+  createElement("h2", "BRO. YOU GOT PRANKED 🤭🤙  ", panel);
   createElement("h2", "           🦁 SIMPLY LOVELY 🦁", panel);
 
   return;

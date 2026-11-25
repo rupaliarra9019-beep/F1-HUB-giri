@@ -117,7 +117,7 @@
     background: #050505;
     z-index: 2;
     clip-path: polygon(0 0, 100% 0, 25% 100%, 0 100%);
-    animation: openLeft 2s cubic-bezier(.1,1,.50,.45) 1.8s forwards;
+    animation: openLeft 2s cubic-bezier(.4,.4,.4,.9973) 1.8s forwards;
   }
 
   /* RIGHT SHUTTER */
@@ -130,7 +130,7 @@
     background: #050505;
     z-index: 2;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 75% 100%);
-    animation: openRight 2s cubic-bezier(.1,1,.50,.45) 1.8s forwards;
+    animation: openRight 2s cubic-bezier(.4,.4,.4,.9973) 1.8s forwards;
   }
 
   @keyframes openLeft {
@@ -150,7 +150,7 @@
     left: calc(50% - 62.5px);
     bottom: -250px;
     overflow: visible;
-    animation: carLaunch 1.3s cubic-bezier(.1,1,.50,.47) 1.6s forwards;
+    animation: carLaunch 1.3s cubic-bezier(.4,.3,.25,.1) 1.6s forwards;
   }
 
   /* CAR AND FLAME MOVE TOGETHER */
@@ -248,7 +248,6 @@
   }, 4200);
 })();
 </script>
-
 
 
 
